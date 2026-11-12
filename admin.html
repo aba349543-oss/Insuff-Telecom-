@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="bn"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Insuff Telecom – অ্যাডমিন</title>
+<style>
+:root{--bg:#f4f6f8;--cd:#fff;--tx:#14181c;--mu:#667085;--ac:#0f766e;--on:#fff;--bd:#e3e7ec;--dg:#dc2626}
+@media(prefers-color-scheme:dark){:root{color-scheme:dark;--bg:#101317;--cd:#1a1e24;--tx:#eceff3;--mu:#9aa3ae;--ac:#2dd4bf;--on:#06201d;--bd:#2b313a;--dg:#f87171}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 system-ui,"Noto Sans Bengali",sans-serif}
+header{background:var(--ac);color:var(--on);padding:12px 16px;font-weight:700;font-size:18px}
+nav{display:flex;gap:6px;padding:8px 12px;position:sticky;top:0;background:var(--bg);z-index:5}
+nav button{flex:1;padding:10px 2px;border:1px solid var(--bd);background:var(--cd);color:var(--tx);border-radius:10px;font:inherit;font-size:14px}
+nav button.on{background:var(--ac);color:var(--on);border-color:var(--ac);font-weight:700}
+main{max-width:640px;margin:auto;padding:4px 12px 60px}
+.c{background:var(--cd);border:1px solid var(--bd);border-radius:14px;padding:14px;margin-bottom:12px}
+h2{font-size:16px;margin:0 0 8px}.mu{color:var(--mu);font-size:13px}
+.r{display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid var(--bd)}.r:last-child{border:0}.r span{flex:1;min-width:0}
+input,select{padding:9px;border:1px solid var(--bd);border-radius:9px;background:var(--bg);color:var(--tx);font:inherit;width:100%}
+.r input{width:96px}
+.b{display:block;width:100%;padding:11px;border:0;border-radius:10px;background:var(--ac);color:var(--on);font:inherit;font-weight:700;margin-top:8px}
+.b.s{background:transparent;color:var(--tx);border:1px solid var(--bd)}
+.x{background:none;border:0;color:var(--dg);font-size:18px;padding:2px 6px}
+.ad{display:flex;gap:6px;margin-top:8px}.ad input{flex:1}.ad button{padding:9px 14px;border:0;border-radius:9px;background:var(--ac);color:var(--on);font:inherit;font-weight:700}
+#st{margin-top:10px;font-weight:600}
+</style></head>
+<body>
+<header>⚙️ Insuff Telecom – অ্যাডমিন প্যানেল</header>
+<nav id="nv"></nav><main id="v"></main>
+<script>
+var DEF={"W":{"10":250,"15":350,"18":400,"20":450,"25":550,"30":650,"33":700,"45":1000,"65":1500,"67":1600,"80":2000,"100":2500,"120":3000},"KC":{"Type-B":120,"Type-C":180},"Q":[["লো কোয়ালিটি",800],["মার্কেট অরিজিনাল",1500],["অরিজিনাল",2500]],"B":{"Samsung":["A03","A03s","A04","A04s","A05","A05s","A06","A07","A10s","A12","A13","A14","A15","A16","A17","A18","A20s","A21s","A22","A23","A24","A25","A26","A31","A32","A33","A34","A35","A36","A37","A50","A51","A52","A53","A54","A55","A56","A57","A71","M06","M07","M12","M13","M14","M15","M16","M17","M31","M32","M33","M34","M35","M36","M56","F15","F16","F36","F56","S22","S23","S23 FE","S24","S24 Ultra","S25","S25 Ultra","S26","S26 Ultra","Z Flip5","Z Fold5"],"Xiaomi":["11T","12T","13T","14T","15T"],"Redmi":["9A","9C","9","9T","10A","10C","10","12C","12","13C","13","14C","17 5G","A1","A2","A3","A5","Note 9","Note 10","Note 10 Pro","Note 11","Note 11 Pro","Note 12","Note 12 Pro","Note 13","Note 13 Pro","Note 14","Note 14 Pro","Note 15"],"Poco":["C40","C55","C61","C65","C75","M4 Pro","M5","M6","M6 Pro","M7 Pro","X5","X5 Pro","X6","X6 Pro","X7 Pro","F5","F6","F7"],"Realme":["C11","C12","C15","C20","C21Y","C25","C30","C33","C35","C51","C53","C55","C61","C63","C65","C67","C71","C75","Note 50","Note 60","Narzo 50A","Narzo 50","Narzo 60","Narzo 70","Narzo 70x","Narzo N53","Narzo N55","Narzo N61","7","8","8i","9","9i","9 Pro","10","10 Pro","11","11 Pro","12","12 Pro","12x","13","13 Pro","14","14x","16x"],"Oppo":["A15","A16","A17","A17k","A18","A31","A38","A53","A54","A55","A57","A58","A59","A60","A74","A77","A78","A79","A96","A3x","A5","A5 Pro","F19","F21 Pro","F23","F25 Pro","F27","Reno 5","Reno 6","Reno 7","Reno 8","Reno 8T","Reno 10","Reno 11","Reno 11F","Reno 12","Reno 12F","Reno 13"],"Vivo":["Y01","Y02","Y02s","Y03","Y12","Y15","Y16","Y17","Y17s","Y18","Y20","Y21","Y22","Y27","Y28","Y29","Y33s","Y35","Y36","Y38","Y51","Y58","Y100","Y200","V20","V21","V23","V25","V27","V29","V30","V40","V50","V60","V80","S60","T2x","T3x"],"Apple iPhone":["6","6S","6 Plus","7","7 Plus","8","8 Plus","X","XR","XS","XS Max","11","11 Pro","11 Pro Max","12 mini","12","12 Pro","12 Pro Max","13 mini","13","13 Pro","13 Pro Max","14","14 Plus","14 Pro","14 Pro Max","15","15 Plus","15 Pro","15 Pro Max","16e","16","16 Plus","16 Pro","16 Pro Max","17","Air","17 Pro","17 Pro Max","18 Pro Max"],"Infinix":["Hot 10","Hot 10s","Hot 10 Play","Hot 11","Hot 11s","Hot 12","Hot 12 Play","Hot 12i","Hot 20","Hot 20i","Hot 20s","Hot 30","Hot 30i","Hot 30 Play","Hot 40","Hot 40i","Hot 40 Pro","Hot 50","Hot 50i","Hot 60 Pro","Smart 5","Smart 6","Smart 6 Plus","Smart 7","Smart 8","Smart 9","Smart 10","Note 10","Note 11","Note 12","Note 30","Note 30 5G","Note 40","Note 40 Pro","Note 50","Zero 20","Zero 30 5G","Zero 40"],"Tecno":["Spark 6","Spark 7","Spark 8","Spark 8C","Spark 9","Spark 10","Spark 10C","Spark 10 Pro","Spark 20","Spark 20C","Spark 20 Pro","Spark 30","Spark 30C","Spark 40","Spark Go 2023","Spark Go 2024","Camon 16","Camon 17","Camon 18","Camon 19","Camon 20","Camon 20 Pro","Camon 30","Camon 30 Pro","Camon 40","Pova 4","Pova 5","Pova 6","Pop 5","Pop 6","Pop 7","Pop 8","Pop 9"],"Walton":["Primo F10","Primo HM5","Primo HM6","Primo NF5","Primo RM4","Primo RX8","Primo RX9","Primo NX","Primo NX2","Primo NX4","Primo RX","Primo RX4","Zenx Z3","Xanon X2 Ultra"],"Symphony":["Z12","Z18","Z28","Z42","Z42 Pro","Z45","Z47","Z60","Z70","Z72","Atom 3","Atom 5","Innova 20","Innova 30","Innova 40","G27","G27 Lite","Max 10","Max 30","Max 60","Max 70","i96"],"Honor":["X5","X5 Plus","X6","X6a","X7a","X7b","X8a","X8b","X9a","X9b","600S"],"Motorola":["E13","E22","E32","G04","G05","G14","G15","G24","G34","G54","G84"]},"K":[["Nokia",350],["Walton",350],["Symphony",350],["itel",350]],"base":[600,150,250,700,1200],"ov":{}};
+var D=JSON.parse(JSON.stringify(DEF)),tab="p",cat=1,bi=0;
+var DS=[["স্ক্রিন / ডিসপ্লে পরিবর্তন",800],["ব্যাটারি পরিবর্তন",500],["চার্জিং পোর্ট মেরামত",400],["সফটওয়্যার / ফ্ল্যাশ",300],["পাসওয়ার্ড / প্যাটার্ন আনলক",300],["পানিতে ভেজা ফোন মেরামত",600],["স্পিকার / মাইক মেরামত",350],["ব্যাকসেল / ব্যাক কভার পরিবর্তন",400]],DZ=[["শহরের ভেতরে",60],["শহরের বাইরে",120]];
+var DX=[{"n":"ইয়ারফোন ও হেডফোন","i":"🎧","t":"g","g":[["তারযুক্ত ইয়ারফোন",[["3.5mm হ্যান্ডস-ফ্রি (মাইক সহ)",100],["Type-C ইয়ারফোন",150],["লাইটনিং ইয়ারফোন",300]]],["ব্লুটুথ নেকব্যান্ড",[["স্ট্যান্ডার্ড নেকব্যান্ড",500],["স্পোর্টস নেকব্যান্ড",700]]],["হেডফোন",[["তারযুক্ত হেডফোন",450],["ব্লুটুথ হেডফোন (ওভার-ইয়ার)",900],["গেমিং হেডসেট",1200]]]]},{"n":"এয়ারবাড","i":"🎵","t":"g","g":[["",[["বেসিক TWS এয়ারবাড",600],["গেমিং লো-ল্যাটেন্সি TWS",1000],["নয়েজ ক্যানসেলিং TWS",1200],["প্রিমিয়াম TWS",2500]]]]},{"n":"ডেটা ক্যাবল","i":"🔗","t":"g","g":[["Type-C",[["Type-C ডেটা ক্যাবল ১ মিটার",120],["Type-C ফাস্ট চার্জিং ক্যাবল",250],["Type-C ক্যাবল ২ মিটার",300],["Type-C টু Type-C ক্যাবল",300]]],["মাইক্রো USB (Type-B)",[["মাইক্রো USB ক্যাবল ১ মিটার",100],["মাইক্রো USB ফাস্ট ক্যাবল",180]]],["লাইটনিং (iPhone)",[["লাইটনিং ক্যাবল ১ মিটার",300],["লাইটনিং ফাস্ট ক্যাবল",450]]],["মাল্টি ক্যাবল",[["৩-ইন-১ চার্জিং ক্যাবল",250]]]]},{"n":"পাওয়ার ব্যাংক","i":"⚡","t":"g","g":[["১০,০০০ mAh",[["স্ট্যান্ডার্ড ১০,০০০ mAh",1000],["ফাস্ট চার্জ ১০,০০০ mAh",1500]]],["২০,০০০ mAh",[["স্ট্যান্ডার্ড ২০,০০০ mAh",1800],["ফাস্ট চার্জ ২০,০০০ mAh",2500]]],["৩০,০০০ mAh",[["স্ট্যান্ডার্ড ৩০,০০০ mAh",2800],["ফাস্ট চার্জ ৩০,০০০ mAh",3600]]]]},{"n":"ব্লুটুথ স্পিকার","i":"🔊","t":"g","g":[["",[["মিনি ব্লুটুথ স্পিকার",600],["পোর্টেবল ব্লুটুথ স্পিকার",1200],["বড় পার্টি স্পিকার",3500],["সাউন্ডবার",3000]]]]},{"n":"গাড়ির চার্জার ও হোল্ডার","i":"🚗","t":"g","g":[["গাড়ির চার্জার",[["ডুয়াল USB কার চার্জার",300],["ফাস্ট চার্জ কার চার্জার (Type-C)",600]]],["ফোন হোল্ডার",[["ড্যাশবোর্ড হোল্ডার",350],["এয়ার ভেন্ট হোল্ডার",300],["বাইক / সাইকেল হোল্ডার",450],["ডেস্ক স্ট্যান্ড",250]]]]},{"n":"মেমোরি কার্ড ও পেন ড্রাইভ","i":"💾","t":"g","g":[["মেমোরি কার্ড (microSD)",[["16 GB",350],["32 GB",450],["64 GB",700],["128 GB",1200],["256 GB",2200]]],["পেন ড্রাইভ",[["16 GB",400],["32 GB",550],["64 GB",800],["128 GB",1400]]],["OTG পেন ড্রাইভ (Type-C)",[["32 GB",650],["64 GB",950],["128 GB",1600]]]]},{"n":"OTG ও অ্যাডাপ্টার","i":"🔀","t":"g","g":[["",[["OTG অ্যাডাপ্টার (Type-C)",150],["OTG অ্যাডাপ্টার (মাইক্রো USB)",120],["Type-C টু 3.5mm অডিও অ্যাডাপ্টার",250],["Type-C টু HDMI অ্যাডাপ্টার",900],["কার্ড রিডার",250],["মাইক্রো USB টু Type-C কনভার্টার",60]]]]},{"n":"চার্জিং পোর্ট বোর্ড","i":"🔩","t":"m","p":350},{"n":"স্পিকার ও মাইক","i":"🔈","t":"m","p":250},{"n":"সিম ট্রে ও সাইড বাটন","i":"💳","t":"m","p":120},{"n":"ফ্রেম / বেজেল","i":"🖼️","t":"m","p":500},{"n":"ফোনের IC ও কম্পোনেন্ট","i":"🧠","t":"g","g":[["IC",[["চার্জিং IC",250],["পাওয়ার IC (PMIC)",500]]],["অন্যান্য কম্পোনেন্ট",[["ফিঙ্গারপ্রিন্ট সেন্সর",400],["ভাইব্রেটর মোটর",150],["ফ্লেক্স / বাটন ক্যাবল",200],["ইয়ারপিস স্পিকার",150]]]]},{"n":"কিপ্যাড ফোন","i":"📞","t":"g","g":[["Nokia",[["Nokia 105",1500],["Nokia 110",1900],["Nokia 150",2800]]],["অন্যান্য ব্র্যান্ড",[["itel কিপ্যাড ফোন",1100],["Symphony কিপ্যাড ফোন",1100],["Walton কিপ্যাড ফোন",1200]]]]},{"n":"স্মার্টওয়াচ ও ব্যান্ড","i":"⌚","t":"g","g":[["স্মার্টওয়াচ",[["বেসিক স্মার্টওয়াচ",1500],["কলিং স্মার্টওয়াচ (ব্লুটুথ)",2500],["AMOLED স্মার্টওয়াচ",4000]]],["ফিটনেস ব্যান্ড",[["বেসিক ফিটনেস ব্যান্ড",1200],["হার্ট রেট ব্যান্ড",1800]]],["ওয়াচ স্ট্র্যাপ",[["সিলিকন স্ট্র্যাপ",200],["মেটাল স্ট্র্যাপ",350]]]]},{"n":"নতুন ও ব্যবহৃত ফোন","i":"📲","t":"g","g":[["নতুন ফোন",[["বাজেট স্মার্টফোন (৬–১০ হাজার রেঞ্জ)",8000],["মিড-রেঞ্জ স্মার্টফোন (১৫–২৫ হাজার রেঞ্জ)",20000],["প্রিমিয়াম স্মার্টফোন",50000]]],["ব্যবহৃত ফোন",[["ব্যবহৃত বাজেট স্মার্টফোন",5000],["ব্যবহৃত মিড-রেঞ্জ স্মার্টফোন",12000],["ব্যবহৃত iPhone",25000]]]]},{"n":"সিম ও রিচার্জ","i":"📶","t":"g","g":[["",[["নতুন সিম কার্ড (অপারেটর ভেদে)",300],["সিম রিপ্লেস সার্ভিস",100]]]]},{"n":"ফোনের টুলস","i":"🛠️","t":"g","g":[["",[["স্ক্রুড্রাইভার সেট (ফোন রিপেয়ার)",300],["ওপেনিং টুল কিট",250],["সাকশন কাপ / প্রাইং টুল",150],["টুইজার সেট",150],["সোল্ডারিং আয়রন",800],["মাল্টিমিটার",700]]]]},{"n":"ওয়াটারপ্রুফ পাউচ ও কেস","i":"💧","t":"g","g":[["",[["ওয়াটারপ্রুফ ফোন পাউচ",250],["ওয়াটারপ্রুফ কেস (IPX8)",600],["লেদার ওয়ালেট কেস",450],["জগিং আর্মব্যান্ড",250],["গলায় ঝোলানো কর্ড / লেনিয়ার্ড",120]]]]}];
+function fix(){if(!D.ov)D.ov={};if(!D.dc)D.dc={};if(!D.S)D.S=JSON.parse(JSON.stringify(DS));if(!D.dz)D.dz=JSON.parse(JSON.stringify(DZ));if(D.fr==null)D.fr=0;if(!D.ft)D.ft=[];if(!D.X)D.X=JSON.parse(JSON.stringify(DX))}
+fix();
+var CN=["","ব্যাটারি","প্রোটেক্টর","ব্যাক কভার","ব্যাকসেল","ক্যামেরা","ডিসপ্লে (অ্যান্ড্রয়েড)"];
+function $(i){return document.getElementById(i)}
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+function sv(){try{localStorage.setItem("adm_d",JSON.stringify(D))}catch(e){}}
+function nm(v){return v===""||isNaN(+v)?null:+v}
+var dr=null;try{dr=localStorage.getItem("adm_d")}catch(e){}
+if(dr){try{D=JSON.parse(dr)}catch(e){}fix();}
+else{try{fetch("catalog.json?v="+Date.now()).then(function(r){return r.ok?r.json():null}).then(function(c){if(c&&c.W&&c.B){D=c;fix();draw()}}).catch(function(){})}catch(e){}}
+function inp(v,fn,ph,w){return'<input type="number" inputmode="decimal" value="'+(v==null?"":v)+'" placeholder="'+(ph==null?"":ph)+'" onchange="'+fn.replace("%","this.value")+'"'+(w?' style="width:'+w+'"':'')+'>'}
+function row(l,i,d){return'<div class="r"><span>'+esc(l)+'</span>'+i+(d?'<button class="x" onclick="'+d+'">✕</button>':'')+'</div>'}
+function setTab(t){tab=t;draw()}
+function draw(){
+ var T=[["p","💰 দাম"],["m","📱 মডেল"],["c","🗂️ ক্যাটাগরি"],["s","🚀 লাইভ করুন"]];
+ $("nv").innerHTML=T.map(function(x){return'<button class="'+(tab==x[0]?"on":"")+'" onclick="setTab(\''+x[0]+'\')">'+x[1]+'</button>'}).join("");
+ $("v").innerHTML=tab=="p"?vP():tab=="m"?vM():tab=="c"?vC():vS();
+}
+/* ---- দাম ---- */
+function vP(){
+ var W=Object.keys(D.W),KC=Object.keys(D.KC);
+ return'<div class="c"><h2>অ্যান্ড্রয়েড চার্জার</h2>'+W.map(function(w){return row(w+" ওয়াট",inp(D.W[w],"D.W['"+w+"']=nm(%);sv()"),"delW('"+w+"')")}).join("")+'<div class="ad"><input id="nw" type="number" placeholder="ওয়াট"><input id="np" type="number" placeholder="দাম"><button onclick="addW()">+</button></div></div>'
+ +'<div class="c"><h2>কিপ্যাড চার্জার</h2>'+KC.map(function(k,i){return row(k,inp(D.KC[k],"D.KC[Object.keys(D.KC)["+i+"]]=nm(%);sv()"))}).join("")+'</div>'
+ +'<div class="c"><h2>মডেল ভিত্তিক পণ্যের ডিফল্ট দাম</h2><p class="mu">কোনো মডেলে আলাদা দাম না দিলে এটা বসবে।</p>'+D.base.map(function(p,i){return row(CN[i+1],inp(p,"D.base["+i+"]=nm(%);sv()"))}).join("")+'</div>'
+ +'<div class="c"><h2>ডিসপ্লে কোয়ালিটি (ডিফল্ট দাম)</h2>'+D.Q.map(function(q,i){return row(q[0],inp(q[1],"D.Q["+i+"][1]=nm(%);sv()"))}).join("")+'</div>'
+ +'<div class="c"><h2>কিপ্যাড ফোন ডিসপ্লে</h2>'+D.K.map(function(k,i){return row(k[0],inp(k[1],"D.K["+i+"][1]=nm(%);sv()"),"D.K.splice("+i+",1);sv();draw()")}).join("")+'<div class="ad"><input id="nk" placeholder="ব্র্যান্ড"><input id="nkp" type="number" placeholder="দাম"><button onclick="addK()">+</button></div></div>'+vX();
+}
+var xk=0;
+function catIds(){return[1,2,3,4,5,6].concat(D.X.map(function(x,k){return x.t=="m"?8+k:0}).filter(Boolean))}
+function cname(i){return i<8?CN[i]:D.X[i-8].n}
+function cbase(i){return i<8?D.base[i-1]:D.X[i-8].p}
+function vC(){
+ var h='<div class="c"><h2>নতুন ক্যাটাগরি</h2><input id="xn" placeholder="ক্যাটাগরির নাম"><div class="ad"><input id="xi" placeholder="ইমোজি 🎧" style="max-width:90px"><select id="xt" style="flex:1"><option value="g">পণ্যের তালিকা</option><option value="m">ফোনের মডেল অনুযায়ী</option></select></div><button class="b" onclick="addX()">+ ক্যাটাগরি যোগ করুন</button></div>';
+ if(!D.X.length)return h;
+ if(xk>=D.X.length)xk=0;
+ var x=D.X[xk];
+ h+='<div class="c"><select onchange="xk=+this.value;draw()">'+D.X.map(function(y,i){return'<option value="'+i+'"'+(i==xk?" selected":"")+'>'+esc(y.i+" "+y.n)+(y.t=="m"?" (মডেল)":"")+'</option>'}).join("")+'</select><button class="b s" onclick="delX()">এই ক্যাটাগরি মুছুন</button></div>';
+ if(x.t=="m")return h+'<div class="c"><h2>'+esc(x.n)+'</h2><p class="mu">এটা ব্র্যান্ড ও মডেল অনুযায়ী ক্যাটাগরি। সব মডেলের ডিফল্ট দাম এখানে, মডেলের আলাদা দাম "মডেল" ট্যাবে।</p>'+row("ডিফল্ট দাম",inp(x.p,"D.X["+xk+"].p=nm(%)||0;sv()"))+'</div>';
+ h+=x.g.map(function(g,gi){return'<div class="c"><h2>'+esc(g[0]||"সাধারণ তালিকা")+'</h2>'+g[1].map(function(it,ii){return row(it[0],inp(it[1],"D.X["+xk+"].g["+gi+"][1]["+ii+"][1]=nm(%)||0;sv()"),"D.X["+xk+"].g["+gi+"][1].splice("+ii+",1);sv();draw()")}).join("")+'<div class="ad"><input id="ni'+gi+'" placeholder="পণ্য / মডেলের নাম"><input id="np'+gi+'" type="number" placeholder="দাম" style="max-width:90px"><button onclick="addXI('+gi+')">+</button></div>'+(x.g.length>1?'<button class="b s" onclick="delG('+gi+')">এই গ্রুপ মুছুন</button>':'')+'</div>'}).join("");
+ return h+'<div class="c"><div class="ad"><input id="ng" placeholder="নতুন গ্রুপের নাম (যেমন: ব্লুটুথ)"><button onclick="addG()">+</button></div></div>'}
+function addX(){var n=$("xn").value.trim(),i=$("xi").value.trim()||"📦",t=$("xt").value;if(!n){alert("নাম দিন");return}D.X.push(t=="m"?{n:n,i:i,t:"m",p:0}:{n:n,i:i,t:"g",g:[["",[]]]});xk=D.X.length-1;sv();draw()}
+function shiftX(k){["ov","dc"].forEach(function(f){var o=D[f],r={};Object.keys(o).forEach(function(key){var p=key.split("|"),c=+p[0];if(c==8+k)return;if(c>8+k)p[0]=c-1;r[p.join("|")]=o[key]});D[f]=r})}
+function delX(){if(!confirm(D.X[xk].n+" ক্যাটাগরি ও এর সব পণ্য মুছবেন?"))return;shiftX(xk);D.X.splice(xk,1);xk=0;sv();draw()}
+function addXI(gi){var n=$("ni"+gi).value.trim(),p=nm($("np"+gi).value);if(!n||p==null){alert("নাম ও দাম দিন");return}D.X[xk].g[gi][1].push([n,p]);sv();draw()}
+function addG(){var n=$("ng").value.trim();if(!n)return;var g=D.X[xk].g;if(g.length==1&&!g[0][0]&&g[0][1].length==0)g[0][0]=n;else g.push([n,[]]);sv();draw()}
+function delG(gi){if(!confirm("গ্রুপটি মুছবেন?"))return;D.X[xk].g.splice(gi,1);if(!D.X[xk].g.length)D.X[xk].g=[["",[]]];sv();draw()}
+var CN2=["চার্জার","ব্যাটারি","প্রোটেক্টর","ব্যাক কভার","ব্যাকসেল","ক্যামেরা","ডিসপ্লে","রিপেয়ার সার্ভিস"];
+function vX(){
+ return'<div class="c"><h2>🔥 ছাড় (%) – ক্যাটাগরি অনুযায়ী</h2><p class="mu">ফাঁকা বা ০ হলে ছাড় নেই। ছাড় দিলে হোম পেজে ছাড়ের ব্যানার নিজে আসবে।</p>'+CN2.concat(D.X.map(function(x){return x.n})).map(function(n,i){return row(n,inp(D.dc[i],"sdc("+i+",%)","0","80px"))}).join("")+'</div>'
+ +'<div class="c"><h2>🔧 রিপেয়ার সার্ভিস</h2>'+D.S.map(function(s,i){return row(s[0],inp(s[1],"D.S["+i+"][1]=nm(%)||0;sv()"),"D.S.splice("+i+",1);sv();draw()")}).join("")+'<div class="ad"><input id="ns" placeholder="সার্ভিসের নাম"><input id="nsp" type="number" placeholder="দাম"><button onclick="addS()">+</button></div></div>'
+ +'<div class="c"><h2>🚚 ডেলিভারি চার্জ</h2>'+D.dz.map(function(z,i){return row(z[0],inp(z[1],"D.dz["+i+"][1]=nm(%)||0;sv()"),"D.dz.splice("+i+",1);sv();draw()")}).join("")+'<div class="ad"><input id="nz" placeholder="এলাকা"><input id="nzp" type="number" placeholder="চার্জ"><button onclick="addZ()">+</button></div>'+row("এত টাকা বা বেশি কিনলে ডেলিভারি ফ্রি (০ = বন্ধ)",inp(D.fr,"D.fr=nm(%)||0;sv()","0"))+'</div>'
+ +'<div class="c"><h2>⭐ হোম পেজের বিশেষ পণ্য</h2><p class="mu">পণ্যের নাম লিখুন, যেমন: Samsung A15 ব্যাটারি। প্রথম মিলে যাওয়া পণ্য হোম পেজে দেখাবে।</p>'+D.ft.map(function(q,i){return row(q,"","D.ft.splice("+i+",1);sv();draw()")}).join("")+'<div class="ad"><input id="nf" placeholder="পণ্যের নাম"><button onclick="addF()">+</button></div></div>'}
+function sdc(i,v){var x=nm(v);if(x==null||x<=0)delete D.dc[i];else D.dc[i]=Math.min(90,x);sv()}
+function addS(){var n=$("ns").value.trim(),p=nm($("nsp").value);if(!n||p==null){alert("নাম ও দাম দিন");return}D.S.push([n,p]);sv();draw()}
+function addZ(){var n=$("nz").value.trim(),p=nm($("nzp").value);if(!n||p==null){alert("এলাকা ও চার্জ দিন");return}D.dz.push([n,p]);sv();draw()}
+function addF(){var n=$("nf").value.trim();if(!n)return;D.ft.push(n);sv();draw()}
+function addW(){var w=nm($("nw").value),p=nm($("np").value);if(w==null||p==null){alert("ওয়াট ও দাম দিন");return}D.W[w]=p;sv();draw()}
+function delW(w){delete D.W[w];sv();draw()}
+function addK(){var n=$("nk").value.trim(),p=nm($("nkp").value);if(!n||p==null){alert("নাম ও দাম দিন");return}D.K.push([n,p]);sv();draw()}
+/* ---- মডেল ---- */
+function setO(c,mi,qi,v){var b=Object.keys(D.B)[bi],k=c+"|"+b+"|"+D.B[b][mi]+(qi==null?"":"|"+qi),x=nm(v);if(x==null)delete D.ov[k];else D.ov[k]=x;sv()}
+function vM(){
+ var bs=Object.keys(D.B),b=bs[bi];
+ var h='<div class="c"><h2>পণ্য ও ব্র্যান্ড</h2><select onchange="cat=+this.value;draw()">'+catIds().map(function(i){return'<option value="'+i+'"'+(i==cat?" selected":"")+'>'+cname(i)+'</option>'}).join("")+'</select><select style="margin-top:8px" onchange="bi=+this.value;draw()">'+bs.map(function(x,i){return'<option value="'+i+'"'+(i==bi?" selected":"")+'>'+esc(x)+' ('+D.B[x].length+')</option>'}).join("")+'</select><div class="ad"><input id="nb" placeholder="নতুন ব্র্যান্ডের নাম"><button onclick="addB()">+</button></div>'+(b?'<button class="b s" onclick="delB()">এই ব্র্যান্ড মুছুন</button>':'')+'</div>';
+ if(!b)return h;
+ h+='<div class="c"><h2>'+esc(b)+' – '+cname(cat)+'</h2><p class="mu">দাম ফাঁকা রাখলে ডিফল্ট দাম (ধূসর সংখ্যা) বসবে।</p>';
+ h+=D.B[b].map(function(m,mi){
+  var p=cat!=6?inp(D.ov[cat+"|"+b+"|"+m],"setO("+cat+","+mi+",null,%)",cbase(cat),"90px"):D.Q.map(function(q,qi){return inp(D.ov["6|"+b+"|"+m+"|"+qi],"setO(6,"+mi+","+qi+",%)",q[1],"68px")}).join("");
+  return row(m,p,"delM("+mi+")")}).join("");
+ return h+'<div class="ad"><input id="ne" placeholder="নতুন মডেলের নাম"><button onclick="addM()">+</button></div></div>';
+}
+function addB(){var n=$("nb").value.trim();if(!n||D.B[n]){alert("নতুন নাম দিন");return}D.B[n]=[];bi=Object.keys(D.B).indexOf(n);sv();draw()}
+function addM(){var b=Object.keys(D.B)[bi],n=$("ne").value.trim();if(!n)return;D.B[b].push(n);sv();draw()}
+function purge(f){Object.keys(D.ov).forEach(function(k){if(f(k.split("|")))delete D.ov[k]})}
+function delM(mi){var b=Object.keys(D.B)[bi],m=D.B[b][mi];if(!confirm(m+" মুছবেন?"))return;D.B[b].splice(mi,1);purge(function(p){return p[1]==b&&p[2]==m});sv();draw()}
+function delB(){var b=Object.keys(D.B)[bi];if(!confirm(b+" ব্র্যান্ড ও তার সব মডেল মুছবেন?"))return;delete D.B[b];purge(function(p){return p[1]==b});bi=0;sv();draw()}
+/* ---- লাইভ ---- */
+function st(t){var e=$("st");if(e)e.textContent=t}
+function vS(){
+ var g=["aba349543-oss","Insuff-Telecom-",""];try{var s=JSON.parse(localStorage.getItem("adm_gh"));if(s)g=s}catch(e){}
+ return'<div class="c"><h2>🚀 সরাসরি ওয়েবসাইটে পাঠান</h2><p class="mu">GitHub token দিলে এক চাপেই দাম ও মডেল ওয়েবসাইটে চলে যাবে। token কাউকে দেবেন না।</p><label class="mu">GitHub ইউজারনেম</label><input id="go" value="'+esc(g[0])+'"><label class="mu">রিপোজিটরির নাম</label><input id="gr" value="'+esc(g[1])+'"><label class="mu">Token</label><input id="gt" type="password" value="'+esc(g[2])+'"><button class="b" onclick="pub()">✅ ওয়েবসাইটে লাইভ করুন</button><div id="st"></div></div>'
+ +'<div class="c"><h2>ফাইল দিয়ে (token ছাড়া)</h2><p class="mu">ফাইল নামিয়ে GitHub-এ catalog.json নামে আপলোড করুন।</p><button class="b s" onclick="dl()">⬇️ catalog.json নামান</button><button class="b s" onclick="if(confirm(\'সব অসমাপ্ত বদল মুছে লাইভ ডেটা আনবেন?\')){try{localStorage.removeItem(\'adm_d\')}catch(e){}location.reload()}">↺ বদল মুছে শুরু থেকে</button></div>';
+}
+function dl(){var a=document.createElement("a");a.href=URL.createObjectURL(new Blob([JSON.stringify(D)],{type:"application/json"}));a.download="catalog.json";document.body.appendChild(a);a.click();a.remove()}
+async function pub(){
+ var o=$("go").value.trim(),r=$("gr").value.trim(),t=$("gt").value.trim();
+ if(!o||!r||!t){st("সব ঘর পূরণ করুন");return}
+ try{localStorage.setItem("adm_gh",JSON.stringify([o,r,t]))}catch(e){}
+ var u="https://api.github.com/repos/"+o+"/"+r+"/contents/catalog.json",h={Authorization:"Bearer "+t,Accept:"application/vnd.github+json"},sha;
+ st("পাঠানো হচ্ছে...");
+ try{
+  var g=await fetch(u,{headers:h});
+  if(g.ok)sha=(await g.json()).sha;else if(g.status!=404){st("ত্রুটি "+g.status+": token বা নাম ঠিক আছে কি দেখুন");return}
+  var body={message:"catalog update",content:btoa(unescape(encodeURIComponent(JSON.stringify(D))))};
+  if(sha)body.sha=sha;
+  var p=await fetch(u,{method:"PUT",headers:h,body:JSON.stringify(body)});
+  if(p.ok){try{localStorage.removeItem("adm_d")}catch(e){}st("✅ সেভ হয়েছে! কয়েক মিনিটের মধ্যে ওয়েবসাইটে আসবে।")}
+  else st("ত্রুটি "+p.status+": token-এ Contents → Read and write অনুমতি আছে কি দেখুন")
+ }catch(e){st("ইন্টারনেট সমস্যা, আবার চেষ্টা করুন")}
+}
+draw();
+</script></body></html>

@@ -35,6 +35,39 @@ input,select{width:100%;padding:11px;border:1px solid var(--bd);border-radius:10
 #bar button{margin:0}
 #toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:#111;color:#fff;padding:9px 16px;border-radius:20px;font-size:14px;display:none;z-index:30}
 .x{background:none;border:0;color:var(--dg);font-size:18px}
+
+body::before{background:#0f766e}
+#top{display:block;padding:10px 12px 12px;background:linear-gradient(135deg,#0f766e,#14b8a6);color:#fff}
+.tr{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}.tr b{font-size:19px}
+.tr a{color:#fff;text-decoration:none;background:rgba(255,255,255,.22);padding:5px 11px;border-radius:16px;font-size:13px}
+.sb input{border:0;border-radius:24px;padding:11px 16px;width:100%;font:inherit;background:#fff;color:#111}
+.bn{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;border-radius:16px;scrollbar-width:none}.bn::-webkit-scrollbar{display:none}
+.bs{flex:0 0 100%;scroll-snap-align:start;padding:20px 18px;color:#fff;min-height:135px;display:flex;flex-direction:column;justify-content:center}
+.bs h3{margin:0 0 4px;font-size:20px}.bs p{margin:0 0 10px;font-size:14px;opacity:.95}
+.bs a,.bs button{align-self:flex-start;background:#fff;color:#111;border:0;border-radius:20px;padding:7px 15px;font:inherit;font-weight:700;text-decoration:none}
+.sh{display:flex;align-items:center;gap:8px;font-size:17px;font-weight:800;margin:18px 0 10px}
+.sh::before{content:"";width:5px;height:20px;border-radius:3px;background:linear-gradient(#f59e0b,#ef4444)}
+.cg{display:grid;grid-template-columns:repeat(4,1fr);gap:12px 8px}.ct{text-align:center;font-size:12px}.ct b{font-size:12px}
+.ci2{width:56px;height:56px;border-radius:18px;margin:0 auto 4px;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 3px 8px rgba(0,0,0,.18)}
+.hs{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none}
+.cd{flex:0 0 112px;border-radius:14px;padding:12px;color:#fff;font-weight:700}.cw{font-size:26px;font-weight:800}.cd small{opacity:.9}
+.wy{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.wy div{border-radius:12px;padding:12px 6px;text-align:center;font-size:12px;font-weight:700}
+.ph{display:flex;align-items:center;gap:10px;padding:14px 16px;border-radius:14px;color:#fff;font-size:18px;font-weight:800;margin-bottom:12px}.ph span{font-size:26px}
+.row{border-left:5px solid var(--cc,var(--bd))}
+#bar{display:flex!important;gap:0;padding:4px 2px calc(4px + env(safe-area-inset-bottom,0px));background:var(--cd);border-top:1px solid var(--bd)}
+.nb{flex:1;border:0;background:none;color:var(--mu);font:inherit;font-size:11px;padding:4px 0;display:flex;flex-direction:column;align-items:center;gap:2px}
+.nb.on{color:var(--ac);font-weight:700}.ni{font-size:21px;position:relative}
+.ni i{position:absolute;top:-4px;right:-12px;background:#ef4444;color:#fff;border-radius:10px;font-size:10px;font-style:normal;padding:0 5px;line-height:16px}
+
+@keyframes fi{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes pop{0%{transform:scale(1)}40%{transform:scale(1.6)}100%{transform:scale(1)}}
+#app>*{animation:fi .35s ease both}#app>*:nth-child(2){animation-delay:.05s}#app>*:nth-child(3){animation-delay:.1s}#app>*:nth-child(4){animation-delay:.15s}#app>*:nth-child(5){animation-delay:.2s}
+.ct,.cd,.row,.btn,.chip,.nb{transition:transform .15s}.ct:active,.cd:active,.row:active,.btn:active,.chip:active{transform:scale(.95)}
+.ni i.pop{animation:pop .45s}#toast{animation:fi .25s}
+.off{background:#ef4444;color:#fff;border-radius:6px;padding:1px 6px;font-size:12px;font-style:normal;font-weight:700}
+.chip{flex:0 0 auto;padding:9px 16px;border-radius:22px;color:#fff;font-weight:700;font-size:14px}
+s.mu{text-decoration:line-through}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style></head>
 <body>
 <div id="top"></div><main id="app"></main><div id="bar"></div><div id="toast"></div>
@@ -42,24 +75,25 @@ input,select{width:100%;padding:11px;border:1px solid var(--bd);border-radius:10
 /* ===== দোকানের তথ্য ও তালিকা (এখান থেকে বদলানো যায়) ===== */
 var WA_KEY=""; /* CallMeBot-এর API key এখানে বসাতে হবে */
 var SHOP="Insuff Telecom",PH="01759911453",WA="8801759911453",KEY="insuff_cart";
-var W={10:250,15:350,18:400,20:450,25:550,30:650,33:700,45:1000,65:1500,67:1600,80:2000,100:2500,120:3000};
-var Q=[["লো কোয়ালিটি",800],["মার্কেট অরিজিনাল",1500],["অরিজিনাল",2500]];
-var B={};[["Samsung", "A03,A03s,A04,A04s,A05,A05s,A06,A07,A10s,A12,A13,A14,A15,A16,A17,A18,A20s,A21s,A22,A23,A24,A25,A26,A31,A32,A33,A34,A35,A36,A37,A50,A51,A52,A53,A54,A55,A56,A57,A71,M06,M07,M12,M13,M14,M15,M16,M17,M31,M32,M33,M34,M35,M36,M56,F15,F16,F36,F56,S22,S23,S23 FE,S24,S24 Ultra,S25,S25 Ultra,S26,S26 Ultra,Z Flip5,Z Fold5"], ["Xiaomi", "11T,12T,13T,14T,15T"], ["Redmi", "9A,9C,9,9T,10A,10C,10,12C,12,13C,13,14C,17 5G,A1,A2,A3,A5,Note 9,Note 10,Note 10 Pro,Note 11,Note 11 Pro,Note 12,Note 12 Pro,Note 13,Note 13 Pro,Note 14,Note 14 Pro,Note 15"], ["Poco", "C40,C55,C61,C65,C75,M4 Pro,M5,M6,M6 Pro,M7 Pro,X5,X5 Pro,X6,X6 Pro,X7 Pro,F5,F6,F7"], ["Realme", "C11,C12,C15,C20,C21Y,C25,C30,C33,C35,C51,C53,C55,C61,C63,C65,C67,C71,C75,Note 50,Note 60,Narzo 50A,Narzo 50,Narzo 60,Narzo 70,Narzo 70x,Narzo N53,Narzo N55,Narzo N61,7,8,8i,9,9i,9 Pro,10,10 Pro,11,11 Pro,12,12 Pro,12x,13,13 Pro,14,14x,16x"], ["Oppo", "A15,A16,A17,A17k,A18,A31,A38,A53,A54,A55,A57,A58,A59,A60,A74,A77,A78,A79,A96,A3x,A5,A5 Pro,F19,F21 Pro,F23,F25 Pro,F27,Reno 5,Reno 6,Reno 7,Reno 8,Reno 8T,Reno 10,Reno 11,Reno 11F,Reno 12,Reno 12F,Reno 13"], ["Vivo", "Y01,Y02,Y02s,Y03,Y12,Y15,Y16,Y17,Y17s,Y18,Y20,Y21,Y22,Y27,Y28,Y29,Y33s,Y35,Y36,Y38,Y51,Y58,Y100,Y200,V20,V21,V23,V25,V27,V29,V30,V40,V50,V60,V80,S60,T2x,T3x"], ["Apple iPhone", "6,6S,6 Plus,7,7 Plus,8,8 Plus,X,XR,XS,XS Max,11,11 Pro,11 Pro Max,12 mini,12,12 Pro,12 Pro Max,13 mini,13,13 Pro,13 Pro Max,14,14 Plus,14 Pro,14 Pro Max,15,15 Plus,15 Pro,15 Pro Max,16e,16,16 Plus,16 Pro,16 Pro Max,17,Air,17 Pro,17 Pro Max,18 Pro Max"], ["Infinix", "Hot 10,Hot 10s,Hot 10 Play,Hot 11,Hot 11s,Hot 12,Hot 12 Play,Hot 12i,Hot 20,Hot 20i,Hot 20s,Hot 30,Hot 30i,Hot 30 Play,Hot 40,Hot 40i,Hot 40 Pro,Hot 50,Hot 50i,Hot 60 Pro,Smart 5,Smart 6,Smart 6 Plus,Smart 7,Smart 8,Smart 9,Smart 10,Note 10,Note 11,Note 12,Note 30,Note 30 5G,Note 40,Note 40 Pro,Note 50,Zero 20,Zero 30 5G,Zero 40"], ["Tecno", "Spark 6,Spark 7,Spark 8,Spark 8C,Spark 9,Spark 10,Spark 10C,Spark 10 Pro,Spark 20,Spark 20C,Spark 20 Pro,Spark 30,Spark 30C,Spark 40,Spark Go 2023,Spark Go 2024,Camon 16,Camon 17,Camon 18,Camon 19,Camon 20,Camon 20 Pro,Camon 30,Camon 30 Pro,Camon 40,Pova 4,Pova 5,Pova 6,Pop 5,Pop 6,Pop 7,Pop 8,Pop 9"], ["Walton", "Primo F10,Primo HM5,Primo HM6,Primo NF5,Primo RM4,Primo RX8,Primo RX9,Primo NX,Primo NX2,Primo NX4,Primo RX,Primo RX4,Zenx Z3,Xanon X2 Ultra"], ["Symphony", "Z12,Z18,Z28,Z42,Z42 Pro,Z45,Z47,Z60,Z70,Z72,Atom 3,Atom 5,Innova 20,Innova 30,Innova 40,G27,G27 Lite,Max 10,Max 30,Max 60,Max 70,i96"], ["Honor", "X5,X5 Plus,X6,X6a,X7a,X7b,X8a,X8b,X9a,X9b,600S"], ["Motorola", "E13,E22,E32,G04,G05,G14,G15,G24,G34,G54,G84"]].forEach(function(x){B[x[0]]=x[1].split(",")});
-var K=["Nokia","Walton","Symphony","itel"];
-function models(p){return Object.keys(B).map(function(b){return{n:b,c:B[b].map(function(m){return{n:m,p:p}})}})}
-var T=[
-{n:"চার্জার",i:"🔌",c:[{n:"কিপ্যাড চার্জার",c:[{n:"Type-B",p:120},{n:"Type-C",p:180}]},{n:"অ্যান্ড্রয়েড চার্জার",c:Object.keys(W).map(function(w){return{n:w+" ওয়াট",p:W[w]}})}]},
-{n:"ব্যাটারি",i:"🔋",c:models(600)},
-{n:"প্রোটেক্টর",i:"🛡️",c:models(150)},
-{n:"ব্যাক কভার",i:"📱",c:models(250)},
-{n:"ব্যাকসেল",i:"🧩",c:models(700)},
-{n:"ক্যামেরা",i:"📷",c:models(1200)},
-{n:"ডিসপ্লে",i:"🖥️",c:[
- {n:"কিপ্যাড ফোন ডিসপ্লে",c:K.map(function(k){return{n:k,p:350}})},
- {n:"অ্যান্ড্রয়েড ফোন ডিসপ্লে",c:Object.keys(B).map(function(b){return{n:b,c:B[b].map(function(m){return{n:m,c:Q.map(function(q){return{n:q[0],p:q[1]}})}})}})}
-]}];
+var D={"W":{"10":250,"15":350,"18":400,"20":450,"25":550,"30":650,"33":700,"45":1000,"65":1500,"67":1600,"80":2000,"100":2500,"120":3000},"KC":{"Type-B":120,"Type-C":180},"Q":[["লো কোয়ালিটি",800],["মার্কেট অরিজিনাল",1500],["অরিজিনাল",2500]],"B":{"Samsung":["A03","A03s","A04","A04s","A05","A05s","A06","A07","A10s","A12","A13","A14","A15","A16","A17","A18","A20s","A21s","A22","A23","A24","A25","A26","A31","A32","A33","A34","A35","A36","A37","A50","A51","A52","A53","A54","A55","A56","A57","A71","M06","M07","M12","M13","M14","M15","M16","M17","M31","M32","M33","M34","M35","M36","M56","F15","F16","F36","F56","S22","S23","S23 FE","S24","S24 Ultra","S25","S25 Ultra","S26","S26 Ultra","Z Flip5","Z Fold5"],"Xiaomi":["11T","12T","13T","14T","15T"],"Redmi":["9A","9C","9","9T","10A","10C","10","12C","12","13C","13","14C","17 5G","A1","A2","A3","A5","Note 9","Note 10","Note 10 Pro","Note 11","Note 11 Pro","Note 12","Note 12 Pro","Note 13","Note 13 Pro","Note 14","Note 14 Pro","Note 15"],"Poco":["C40","C55","C61","C65","C75","M4 Pro","M5","M6","M6 Pro","M7 Pro","X5","X5 Pro","X6","X6 Pro","X7 Pro","F5","F6","F7"],"Realme":["C11","C12","C15","C20","C21Y","C25","C30","C33","C35","C51","C53","C55","C61","C63","C65","C67","C71","C75","Note 50","Note 60","Narzo 50A","Narzo 50","Narzo 60","Narzo 70","Narzo 70x","Narzo N53","Narzo N55","Narzo N61","7","8","8i","9","9i","9 Pro","10","10 Pro","11","11 Pro","12","12 Pro","12x","13","13 Pro","14","14x","16x"],"Oppo":["A15","A16","A17","A17k","A18","A31","A38","A53","A54","A55","A57","A58","A59","A60","A74","A77","A78","A79","A96","A3x","A5","A5 Pro","F19","F21 Pro","F23","F25 Pro","F27","Reno 5","Reno 6","Reno 7","Reno 8","Reno 8T","Reno 10","Reno 11","Reno 11F","Reno 12","Reno 12F","Reno 13"],"Vivo":["Y01","Y02","Y02s","Y03","Y12","Y15","Y16","Y17","Y17s","Y18","Y20","Y21","Y22","Y27","Y28","Y29","Y33s","Y35","Y36","Y38","Y51","Y58","Y100","Y200","V20","V21","V23","V25","V27","V29","V30","V40","V50","V60","V80","S60","T2x","T3x"],"Apple iPhone":["6","6S","6 Plus","7","7 Plus","8","8 Plus","X","XR","XS","XS Max","11","11 Pro","11 Pro Max","12 mini","12","12 Pro","12 Pro Max","13 mini","13","13 Pro","13 Pro Max","14","14 Plus","14 Pro","14 Pro Max","15","15 Plus","15 Pro","15 Pro Max","16e","16","16 Plus","16 Pro","16 Pro Max","17","Air","17 Pro","17 Pro Max","18 Pro Max"],"Infinix":["Hot 10","Hot 10s","Hot 10 Play","Hot 11","Hot 11s","Hot 12","Hot 12 Play","Hot 12i","Hot 20","Hot 20i","Hot 20s","Hot 30","Hot 30i","Hot 30 Play","Hot 40","Hot 40i","Hot 40 Pro","Hot 50","Hot 50i","Hot 60 Pro","Smart 5","Smart 6","Smart 6 Plus","Smart 7","Smart 8","Smart 9","Smart 10","Note 10","Note 11","Note 12","Note 30","Note 30 5G","Note 40","Note 40 Pro","Note 50","Zero 20","Zero 30 5G","Zero 40"],"Tecno":["Spark 6","Spark 7","Spark 8","Spark 8C","Spark 9","Spark 10","Spark 10C","Spark 10 Pro","Spark 20","Spark 20C","Spark 20 Pro","Spark 30","Spark 30C","Spark 40","Spark Go 2023","Spark Go 2024","Camon 16","Camon 17","Camon 18","Camon 19","Camon 20","Camon 20 Pro","Camon 30","Camon 30 Pro","Camon 40","Pova 4","Pova 5","Pova 6","Pop 5","Pop 6","Pop 7","Pop 8","Pop 9"],"Walton":["Primo F10","Primo HM5","Primo HM6","Primo NF5","Primo RM4","Primo RX8","Primo RX9","Primo NX","Primo NX2","Primo NX4","Primo RX","Primo RX4","Zenx Z3","Xanon X2 Ultra"],"Symphony":["Z12","Z18","Z28","Z42","Z42 Pro","Z45","Z47","Z60","Z70","Z72","Atom 3","Atom 5","Innova 20","Innova 30","Innova 40","G27","G27 Lite","Max 10","Max 30","Max 60","Max 70","i96"],"Honor":["X5","X5 Plus","X6","X6a","X7a","X7b","X8a","X8b","X9a","X9b","600S"],"Motorola":["E13","E22","E32","G04","G05","G14","G15","G24","G34","G54","G84"]},"K":[["Nokia",350],["Walton",350],["Symphony",350],["itel",350]],"base":[600,150,250,700,1200],"ov":{}};
+var DS=[["স্ক্রিন / ডিসপ্লে পরিবর্তন",800],["ব্যাটারি পরিবর্তন",500],["চার্জিং পোর্ট মেরামত",400],["সফটওয়্যার / ফ্ল্যাশ",300],["পাসওয়ার্ড / প্যাটার্ন আনলক",300],["পানিতে ভেজা ফোন মেরামত",600],["স্পিকার / মাইক মেরামত",350],["ব্যাকসেল / ব্যাক কভার পরিবর্তন",400]],DZ=[["শহরের ভেতরে",60],["শহরের বাইরে",120]];
+var DX=[{"n":"ইয়ারফোন ও হেডফোন","i":"🎧","t":"g","g":[["তারযুক্ত ইয়ারফোন",[["3.5mm হ্যান্ডস-ফ্রি (মাইক সহ)",100],["Type-C ইয়ারফোন",150],["লাইটনিং ইয়ারফোন",300]]],["ব্লুটুথ নেকব্যান্ড",[["স্ট্যান্ডার্ড নেকব্যান্ড",500],["স্পোর্টস নেকব্যান্ড",700]]],["হেডফোন",[["তারযুক্ত হেডফোন",450],["ব্লুটুথ হেডফোন (ওভার-ইয়ার)",900],["গেমিং হেডসেট",1200]]]]},{"n":"এয়ারবাড","i":"🎵","t":"g","g":[["",[["বেসিক TWS এয়ারবাড",600],["গেমিং লো-ল্যাটেন্সি TWS",1000],["নয়েজ ক্যানসেলিং TWS",1200],["প্রিমিয়াম TWS",2500]]]]},{"n":"ডেটা ক্যাবল","i":"🔗","t":"g","g":[["Type-C",[["Type-C ডেটা ক্যাবল ১ মিটার",120],["Type-C ফাস্ট চার্জিং ক্যাবল",250],["Type-C ক্যাবল ২ মিটার",300],["Type-C টু Type-C ক্যাবল",300]]],["মাইক্রো USB (Type-B)",[["মাইক্রো USB ক্যাবল ১ মিটার",100],["মাইক্রো USB ফাস্ট ক্যাবল",180]]],["লাইটনিং (iPhone)",[["লাইটনিং ক্যাবল ১ মিটার",300],["লাইটনিং ফাস্ট ক্যাবল",450]]],["মাল্টি ক্যাবল",[["৩-ইন-১ চার্জিং ক্যাবল",250]]]]},{"n":"পাওয়ার ব্যাংক","i":"⚡","t":"g","g":[["১০,০০০ mAh",[["স্ট্যান্ডার্ড ১০,০০০ mAh",1000],["ফাস্ট চার্জ ১০,০০০ mAh",1500]]],["২০,০০০ mAh",[["স্ট্যান্ডার্ড ২০,০০০ mAh",1800],["ফাস্ট চার্জ ২০,০০০ mAh",2500]]],["৩০,০০০ mAh",[["স্ট্যান্ডার্ড ৩০,০০০ mAh",2800],["ফাস্ট চার্জ ৩০,০০০ mAh",3600]]]]},{"n":"ব্লুটুথ স্পিকার","i":"🔊","t":"g","g":[["",[["মিনি ব্লুটুথ স্পিকার",600],["পোর্টেবল ব্লুটুথ স্পিকার",1200],["বড় পার্টি স্পিকার",3500],["সাউন্ডবার",3000]]]]},{"n":"গাড়ির চার্জার ও হোল্ডার","i":"🚗","t":"g","g":[["গাড়ির চার্জার",[["ডুয়াল USB কার চার্জার",300],["ফাস্ট চার্জ কার চার্জার (Type-C)",600]]],["ফোন হোল্ডার",[["ড্যাশবোর্ড হোল্ডার",350],["এয়ার ভেন্ট হোল্ডার",300],["বাইক / সাইকেল হোল্ডার",450],["ডেস্ক স্ট্যান্ড",250]]]]},{"n":"মেমোরি কার্ড ও পেন ড্রাইভ","i":"💾","t":"g","g":[["মেমোরি কার্ড (microSD)",[["16 GB",350],["32 GB",450],["64 GB",700],["128 GB",1200],["256 GB",2200]]],["পেন ড্রাইভ",[["16 GB",400],["32 GB",550],["64 GB",800],["128 GB",1400]]],["OTG পেন ড্রাইভ (Type-C)",[["32 GB",650],["64 GB",950],["128 GB",1600]]]]},{"n":"OTG ও অ্যাডাপ্টার","i":"🔀","t":"g","g":[["",[["OTG অ্যাডাপ্টার (Type-C)",150],["OTG অ্যাডাপ্টার (মাইক্রো USB)",120],["Type-C টু 3.5mm অডিও অ্যাডাপ্টার",250],["Type-C টু HDMI অ্যাডাপ্টার",900],["কার্ড রিডার",250],["মাইক্রো USB টু Type-C কনভার্টার",60]]]]},{"n":"চার্জিং পোর্ট বোর্ড","i":"🔩","t":"m","p":350},{"n":"স্পিকার ও মাইক","i":"🔈","t":"m","p":250},{"n":"সিম ট্রে ও সাইড বাটন","i":"💳","t":"m","p":120},{"n":"ফ্রেম / বেজেল","i":"🖼️","t":"m","p":500},{"n":"ফোনের IC ও কম্পোনেন্ট","i":"🧠","t":"g","g":[["IC",[["চার্জিং IC",250],["পাওয়ার IC (PMIC)",500]]],["অন্যান্য কম্পোনেন্ট",[["ফিঙ্গারপ্রিন্ট সেন্সর",400],["ভাইব্রেটর মোটর",150],["ফ্লেক্স / বাটন ক্যাবল",200],["ইয়ারপিস স্পিকার",150]]]]},{"n":"কিপ্যাড ফোন","i":"📞","t":"g","g":[["Nokia",[["Nokia 105",1500],["Nokia 110",1900],["Nokia 150",2800]]],["অন্যান্য ব্র্যান্ড",[["itel কিপ্যাড ফোন",1100],["Symphony কিপ্যাড ফোন",1100],["Walton কিপ্যাড ফোন",1200]]]]},{"n":"স্মার্টওয়াচ ও ব্যান্ড","i":"⌚","t":"g","g":[["স্মার্টওয়াচ",[["বেসিক স্মার্টওয়াচ",1500],["কলিং স্মার্টওয়াচ (ব্লুটুথ)",2500],["AMOLED স্মার্টওয়াচ",4000]]],["ফিটনেস ব্যান্ড",[["বেসিক ফিটনেস ব্যান্ড",1200],["হার্ট রেট ব্যান্ড",1800]]],["ওয়াচ স্ট্র্যাপ",[["সিলিকন স্ট্র্যাপ",200],["মেটাল স্ট্র্যাপ",350]]]]},{"n":"নতুন ও ব্যবহৃত ফোন","i":"📲","t":"g","g":[["নতুন ফোন",[["বাজেট স্মার্টফোন (৬–১০ হাজার রেঞ্জ)",8000],["মিড-রেঞ্জ স্মার্টফোন (১৫–২৫ হাজার রেঞ্জ)",20000],["প্রিমিয়াম স্মার্টফোন",50000]]],["ব্যবহৃত ফোন",[["ব্যবহৃত বাজেট স্মার্টফোন",5000],["ব্যবহৃত মিড-রেঞ্জ স্মার্টফোন",12000],["ব্যবহৃত iPhone",25000]]]]},{"n":"সিম ও রিচার্জ","i":"📶","t":"g","g":[["",[["নতুন সিম কার্ড (অপারেটর ভেদে)",300],["সিম রিপ্লেস সার্ভিস",100]]]]},{"n":"ফোনের টুলস","i":"🛠️","t":"g","g":[["",[["স্ক্রুড্রাইভার সেট (ফোন রিপেয়ার)",300],["ওপেনিং টুল কিট",250],["সাকশন কাপ / প্রাইং টুল",150],["টুইজার সেট",150],["সোল্ডারিং আয়রন",800],["মাল্টিমিটার",700]]]]},{"n":"ওয়াটারপ্রুফ পাউচ ও কেস","i":"💧","t":"g","g":[["",[["ওয়াটারপ্রুফ ফোন পাউচ",250],["ওয়াটারপ্রুফ কেস (IPX8)",600],["লেদার ওয়ালেট কেস",450],["জগিং আর্মব্যান্ড",250],["গলায় ঝোলানো কর্ড / লেনিয়ার্ড",120]]]]}];
+function fix(){if(!D.ov)D.ov={};if(!D.dc)D.dc={};if(!D.S)D.S=JSON.parse(JSON.stringify(DS));if(!D.dz)D.dz=JSON.parse(JSON.stringify(DZ));if(D.fr==null)D.fr=0;if(!D.ft)D.ft=[];if(!D.X)D.X=JSON.parse(JSON.stringify(DX))}
+var T=[];
+function pv(c,b,m,p){var v=D.ov[c+"|"+b+"|"+m];return v!=null?v:p}
+function lf(c,n,p){var d=+D.dc[c]||0;return d>0?{n:n,p:Math.round(p*(100-d)/100),op:p,d:d}:{n:n,p:p}}
+function build(){
+ var mo=function(c){return Object.keys(D.B).map(function(b){return{n:b,c:D.B[b].map(function(m){return lf(c,m,pv(c,b,m,D.base[c-1]))})}})};
+ T=[{n:"চার্জার",i:"🔌",c:[{n:"কিপ্যাড চার্জার",c:Object.keys(D.KC).map(function(k){return lf(0,k,D.KC[k])})},{n:"অ্যান্ড্রয়েড চার্জার",c:Object.keys(D.W).map(function(w){return lf(0,w+" ওয়াট",D.W[w])})}]},
+ {n:"ব্যাটারি",i:"🔋",c:mo(1)},{n:"প্রোটেক্টর",i:"🛡️",c:mo(2)},{n:"ব্যাক কভার",i:"📱",c:mo(3)},{n:"ব্যাকসেল",i:"🧩",c:mo(4)},{n:"ক্যামেরা",i:"📷",c:mo(5)},
+ {n:"ডিসপ্লে",i:"🖥️",c:[{n:"কিপ্যাড ফোন ডিসপ্লে",c:D.K.map(function(k){return lf(6,k[0],k[1])})},{n:"অ্যান্ড্রয়েড ফোন ডিসপ্লে",c:Object.keys(D.B).map(function(b){return{n:b,c:D.B[b].map(function(m){return{n:m,c:D.Q.map(function(q,qi){return lf(6,q[0],pv(6,b,m+"|"+qi,q[1]))})}})}})}]},
+ {n:"রিপেয়ার সার্ভিস",i:"🔧",c:D.S.map(function(s){var o=lf(7,s[0],s[1]);o.sv=1;return o})}].concat(D.X.map(function(x,k){var c=8+k;return x.t=="m"?{n:x.n,i:x.i,c:Object.keys(D.B).map(function(b){return{n:b,c:D.B[b].map(function(m){return lf(c,m,pv(c,b,m,x.p))})}})}:{n:x.n,i:x.i,c:(x.g.length==1&&!x.g[0][0])?x.g[0][1].map(function(it){return lf(c,it[0],it[1])}):x.g.map(function(g){return{n:g[0]||"সাধারণ",c:g[1].map(function(it){return lf(c,it[0],it[1])})}})}}));
+}
+fix();build();
+try{fetch("catalog.json?v="+Date.now()).then(function(r){return r.ok?r.json():null}).then(function(c){if(c&&c.W&&c.B){D=c;fix();build();path=[];draw()}}).catch(function(){})}catch(e){}
 /* ===== অ্যাপের কাজ ===== */
-var path=[],view="shop",cart=[],pq=1,ci={n:"",p:"",a:"",d:"হোম ডেলিভারি"},ord=null;
+var path=[],view="shop",cart=[],pq=1,ci={n:"",p:"",a:"",d:"হোম ডেলিভারি",z:0,m:""},ord=null;
+var sq="",SR=[],hist=[],LV=null,popC=0,FR=[],bidx=0,showAll=false;try{hist=JSON.parse(localStorage.getItem("insuff_orders"))||[]}catch(e){}
 try{cart=JSON.parse(localStorage.getItem(KEY))||[]}catch(e){}
 function sv(){try{localStorage.setItem(KEY,JSON.stringify(cart))}catch(e){}}
 function $(i){return document.getElementById(i)}
@@ -68,24 +102,61 @@ function node(){var n={c:T};path.forEach(function(i){n=n.c[i]});return n}
 function names(){var n={c:T},a=[];path.forEach(function(i){n=n.c[i];a.push(n.n)});return a}
 function sum(){return cart.reduce(function(s,x){return s+x.price*x.qty},0)}
 function cnt(){return cart.reduce(function(s,x){return s+x.qty},0)}
-function go(i){path.push(i);pq=1;bci=0;view="shop";draw();scrollTo(0,0)}
+function go(i){sq="";path.push(i);pq=1;bci=0;view="shop";draw();scrollTo(0,0)}
 function back(){if(view!="shop")view="shop";else path.pop();draw()}
-function home(){path=[];view="shop";draw();scrollTo(0,0)}
+function home(){sq="";path=[];view="shop";draw();scrollTo(0,0)}
 function show(v){view=v;draw();scrollTo(0,0)}
 function toast(t){var e=$("toast");e.textContent=t;e.style.display="block";setTimeout(function(){e.style.display="none"},1500)}
-function draw(){
- $("top").innerHTML='<b onclick="home()">📱 '+SHOP+'</b><button onclick="show(\'cart\')">🛒 কার্ট ('+cnt()+')</button>';
- var h=view=="cart"?vCart():view=="checkout"?vCheck():view=="done"?vDone():vShop();
- $("app").innerHTML=h;
- var b=$("bar");
- if(view=="shop"&&cart.length&&node().p==null){b.style.display="block";b.innerHTML='<button class="btn" onclick="show(\'cart\')">🛒 '+cnt()+' টি পণ্য · ৳'+sum()+' — কার্ট দেখুন</button>'}else b.style.display="none";
-}
+var BN=[{t:"মোবাইলের সব পার্টস এক জায়গায়",s:"চার্জার, ব্যাটারি, ডিসপ্লে ও আরও অনেক কিছু",b:"কেনাকাটা শুরু করুন",f:"cats",g:"#0f766e,#14b8a6"},{t:"⚡ ১০ থেকে ১২০ ওয়াট চার্জার",s:"আপনার ফোনের জন্য সঠিক ওয়াট বেছে নিন",b:"চার্জার দেখুন",f:"go0",g:"#f59e0b,#ef4444"},{t:"🖥️ ডিসপ্লে: লো, মার্কেট অরিজিনাল, অরিজিনাল",s:"পছন্দের কোয়ালিটি বেছে নিন",b:"ডিসপ্লে দেখুন",f:"go6",g:"#6366f1,#06b6d4"},{t:"📞 কল করে অর্ডার করুন",s:PH,b:"এখনই কল করুন",f:"call",g:"#ec4899,#8b5cf6"}];
+var CC=[["#f59e0b","#ef4444"],["#10b981","#059669"],["#3b82f6","#6366f1"],["#ec4899","#f43f5e"],["#8b5cf6","#6366f1"],["#ef4444","#f97316"],["#06b6d4","#3b82f6"],["#0ea5e9","#22c55e"]];
+var AL=["charger adapter","battery","protector glass","cover","backshell back shell","camera","display lcd screen","repair service মেরামত সার্ভিস"];
+var PAL=[["#14b8a6","#0ea5e9"],["#f43f5e","#fb923c"],["#84cc16","#22c55e"],["#a855f7","#ec4899"],["#eab308","#f97316"],["#0ea5e9","#6366f1"],["#10b981","#14b8a6"]];
+function ext(){while(CC.length<T.length)CC.push(PAL[CC.length%PAL.length]);for(var i=8;i<T.length;i++)AL[i]=T[i].n}
+function gr(i){return"linear-gradient(135deg,"+CC[i][0]+","+CC[i][1]+")"}
+function drawTop(){$("top").innerHTML='<div class="tr"><b onclick="home()">📱 '+SHOP+'</b><a href="tel:'+PH+'">📞 '+PH+'</a></div><div class="sb"><input id="q" type="search" placeholder="🔍 চার্জার, ব্যাটারি, মডেল খুঁজুন..." value="'+esc(sq)+'" oninput="srch(this.value)"></div>'}
+function drawNav(){var it=[["home","🏠","হোম"],["cats","🗂️","ক্যাটাগরি"],["cart","🛒","কার্ট"],["orders","📦","অর্ডার"],["contact","📞","যোগাযোগ"]],a=view=="cart"?"cart":view=="orders"?"orders":view=="contact"?"contact":(view=="shop"&&!path.length?"home":"");
+ $("bar").innerHTML=it.map(function(x){return'<button class="nb'+(a==x[0]?" on":"")+'" onclick="nv(\''+x[0]+'\')"><span class="ni">'+x[1]+(x[0]=="cart"&&cnt()?'<i'+(popC?' class="pop"':'')+'>'+cnt()+'</i>':'')+'</span>'+x[2]+'</button>'}).join("");popC=0}
+function nv(k){sq="";if(k=="home")home();else if(k=="cats"){home();setTimeout(function(){var e=$("cats");if(e)e.scrollIntoView({behavior:"smooth"})},60)}else show(k)}
+function draw(){ext();drawTop();$("app").innerHTML=view=="cart"?vCart():view=="checkout"?vCheck():view=="done"?vDone():view=="search"?vSearch():view=="orders"?vOrders():view=="contact"?vContact():view=="brand"?vBrand():vShop();drawNav()}
+function srch(v){sq=v;if(!v.trim()){view="shop";draw();return}view="search";$("app").innerHTML=vSearch();drawNav()}
+function leaves(){ext();if(LV&&LV.t===T)return LV.l;var o=[];(function w(n,ix,nz){if(n.p!=null){o.push({ix:ix,nz:nz,p:n.p,op:n.op,d:n.d});return}(n.c||[]).forEach(function(c,i){w(c,ix.concat(i),nz.concat(c.n))})})({c:T},[],[]);LV={t:T,l:o};return o}
+function vSearch(){
+ var q=sq.trim().toLowerCase();if(!q)return'<p class="mu">কী খুঁজছেন লিখুন, যেমন: Samsung A15 ব্যাটারি, 33 ওয়াট, Redmi Note 12 ডিসপ্লে</p>';
+ var tk=q.split(/\s+/),r=[],L=leaves();
+ for(var i=0;i<L.length&&r.length<40;i++){var x=L[i],s=(x.nz.join(" ")+" "+AL[x.ix[0]]+(x.ix[0]==0&&x.ix[1]==1?" "+parseInt(x.nz[2])+"w":"")).toLowerCase();if(tk.every(function(t){return s.indexOf(t)>-1}))r.push(x)}
+ SR=r;if(!r.length)return'<p class="mu">কিছু পাওয়া যায়নি। অন্যভাবে লিখুন বা কল করুন: '+PH+'</p>';
+ return r.map(function(x,i){return'<div class="row" style="--cc:'+CC[x.ix[0]][0]+'" onclick="openLeaf('+i+')"><span>'+T[x.ix[0]].i+' '+esc(x.nz.join(" › "))+'</span><span>'+pr(x)+'</span></div>'}).join("")}
+function openLeaf(i){path=SR[i].ix.slice();pq=1;bci=0;sq="";view="shop";draw();scrollTo(0,0)}
+function oc(ix){path=[0,1,ix];pq=1;bci=0;view="shop";draw();scrollTo(0,0)}
+function bnA(k){if(k=="cats"||k=="dis"){var e=$(k);if(e)e.scrollIntoView({behavior:"smooth"})}else go(+k.slice(2))}
+function hd(){var i=path[0],nz=names();return'<div class="ph" style="background:'+gr(i)+'"><span>'+T[i].i+'</span> '+esc(nz[nz.length-1])+'</div>'}
+function pr(x){return x.op?'<s class="mu">৳'+x.op+'</s> <b>৳'+x.p+'</b> <em class="off">-'+x.d+'%</em>':'<b>৳'+x.p+'</b>'}
+function mq(x,tk){var s=(x.nz.join(" ")+" "+AL[x.ix[0]]+(x.ix[0]==0&&x.ix[1]==1?" "+parseInt(x.nz[2])+"w":"")).toLowerCase();return tk.every(function(t){return s.indexOf(t)>-1})}
+function feat(){var L=leaves();FR=D.ft.map(function(q){var tk=q.toLowerCase().split(/\s+/);for(var i=0;i<L.length;i++)if(mq(L[i],tk))return L[i];return null}).filter(Boolean);return FR}
+function ofe(i){SR=FR;openLeaf(i)}
+function bp(i){bidx=i;view="brand";draw();scrollTo(0,0)}
+function bk(c){path=c==6?[6,1,bidx]:[c,bidx];pq=1;bci=0;view="shop";draw();scrollTo(0,0)}
+function vBrand(){var b=Object.keys(D.B)[bidx];return'<div class="bc"><button onclick="back()">← পেছনে</button></div><div class="ph" style="background:linear-gradient(135deg,#6366f1,#ec4899)"><span>📱</span> '+esc(b)+'</div><div class="cg" style="grid-template-columns:repeat(3,1fr)">'+[1,2,3,4,5,6].concat(D.X.map(function(x,k){return x.t=="m"?8+k:0}).filter(Boolean)).map(function(c){return'<div class="ct" onclick="bk('+c+')"><div class="ci2" style="background:'+gr(c)+'">'+T[c].i+'</div><b style="color:'+CC[c][0]+'">'+T[c].n+'</b></div>'}).join("")+'</div>'}
+function vHome(){
+ var ws=Object.keys(D.W),pk=["10","20","33","65","120"].filter(function(w){return D.W[w]!=null}),co=[["#f59e0b","#ef4444"],["#10b981","#06b6d4"],["#6366f1","#ec4899"],["#8b5cf6","#3b82f6"],["#ef4444","#f97316"]],mx=0,ds=[];
+ Object.keys(D.dc).forEach(function(k){var v=+D.dc[k]||0;if(v>0&&T[+k]){ds.push([+k,v]);mx=Math.max(mx,v)}});
+ var bn=BN.slice();if(mx>0)bn.unshift({t:"🔥 বিশেষ ছাড় চলছে!",s:"কিছু ক্যাটাগরিতে "+mx+"% পর্যন্ত ছাড়",b:"ছাড়ের তালিকা দেখুন",f:"dis",g:"#ef4444,#f97316"});
+ var bc=["#ef4444","#3b82f6","#10b981","#f59e0b","#8b5cf6","#ec4899","#06b6d4"],ft=feat();
+ var h='<div class="bn" id="bn">'+bn.map(function(b){return'<div class="bs" style="background:linear-gradient(135deg,'+b.g+')"><h3>'+b.t+'</h3><p>'+b.s+'</p>'+(b.f=="call"?'<a href="tel:'+PH+'">'+b.b+'</a>':'<button onclick="bnA(\''+b.f+'\')">'+b.b+'</button>')+'</div>'}).join("")+'</div>'
+ +'<div class="sh" id="cats">সব ক্যাটাগরি</div><div class="cg">'+T.map(function(c,i){return(i>=8&&!showAll)?"":'<div class="ct" onclick="go('+i+')"><div class="ci2" style="background:'+gr(i)+'">'+c.i+'</div><b style="color:'+CC[i][0]+'">'+c.n+'</b></div>'}).join("")+(T.length>8?'<div class="ct" onclick="showAll=!showAll;draw()"><div class="ci2" style="background:linear-gradient(135deg,#64748b,#334155)">'+(showAll?"➖":"➕")+'</div><b>'+(showAll?"কম দেখুন":"আরও দেখুন")+'</b></div>':"")+'<a class="ct" href="tel:'+PH+'" style="text-decoration:none;color:inherit"><div class="ci2" style="background:linear-gradient(135deg,#22c55e,#16a34a)">📞</div><b style="color:#16a34a">কল করুন</b></a></div>';
+ if(ds.length)h+='<div class="sh" id="dis">🔥 ছাড় চলছে</div><div class="hs">'+ds.map(function(x){return'<div class="cd" style="background:'+gr(x[0])+'" onclick="go('+x[0]+')"><div class="cw">-'+x[1]+'%</div><div>'+T[x[0]].i+' '+T[x[0]].n+'</div><small>দেখুন ›</small></div>'}).join("")+'</div>';
+ h+='<div class="sh">⚡ জনপ্রিয় চার্জার</div><div class="hs">'+pk.map(function(w,i){var lw=T[0].c[1].c[ws.indexOf(w)];return'<div class="cd" style="background:linear-gradient(135deg,'+co[i][0]+','+co[i][1]+')" onclick="oc('+ws.indexOf(w)+')"><div class="cw">'+w+'W</div><div>'+(lw.op?'<s style="opacity:.8">৳'+lw.op+'</s> ':'')+'৳'+lw.p+'</div><small>দেখুন ›</small></div>'}).join("")+'</div>'
+ +'<div class="sh">📱 ব্র্যান্ড অনুযায়ী কিনুন</div><div class="hs">'+Object.keys(D.B).map(function(b,i){return'<div class="chip" style="background:'+bc[i%7]+'" onclick="bp('+i+')">'+esc(b)+'</div>'}).join("")+'</div>';
+ if(ft.length)h+='<div class="sh">⭐ বিশেষ পণ্য</div>'+ft.map(function(x,i){return'<div class="row" style="--cc:'+CC[x.ix[0]][0]+'" onclick="ofe('+i+')"><span>'+T[x.ix[0]].i+' '+esc(x.nz.join(" › "))+'</span><span>'+pr(x)+'</span></div>'}).join("");
+ return h+'<div class="sh">অর্ডার করবেন যেভাবে</div><div class="wy"><div style="background:#fef3c7;color:#92400e">📞<br>কল করে অর্ডার</div><div style="background:#dcfce7;color:#166534">💬<br>অনলাইনে ফর্ম পূরণ</div><div style="background:#dbeafe;color:#1e40af">🏪<br>দোকান থেকে নিন</div></div><p class="mu" style="text-align:center;margin-top:20px">'+SHOP+' · মোবাইল সার্ভিসিং<br>ফোন: '+PH+'</p>'}
+function vOrders(){return'<div class="ph" style="background:linear-gradient(135deg,#8b5cf6,#ec4899)"><span>📦</span> আমার অর্ডার</div>'+(hist.length?hist.map(function(o){return'<div class="card"><b>#'+o.no+'</b> · '+new Date(o.d).toLocaleDateString("en-GB")+' · <b>৳'+o.tot+'</b><pre style="white-space:pre-wrap;font:inherit;font-size:13px;margin:6px 0 0">'+esc(o.t)+'</pre></div>'}).join("")+'<p class="mu">অর্ডারের তালিকা শুধু এই ফোনে জমা থাকে।</p>':'<div class="card"><p>এখনও কোনো অর্ডার করা হয়নি।</p></div>')}
+function vContact(){return'<div class="ph" style="background:linear-gradient(135deg,#22c55e,#0f766e)"><span>📞</span> যোগাযোগ</div><div class="card"><b>'+SHOP+'</b><br><span class="mu">মোবাইল সার্ভিসিং ও এক্সেসরিজ</span><br><b>'+PH+'</b><a class="btn" href="tel:'+PH+'">📞 কল করুন</a><a class="btn s" href="https://wa.me/'+WA+'" target="_blank" rel="noopener">💬 WhatsApp-এ মেসেজ করুন</a></div>'}
 function bc(){return'<div class="bc"><button onclick="back()">← পেছনে</button><span>'+esc(names().join(" › "))+'</span></div>'}
 function vShop(){
  var n=node();
  if(n.p!=null)return bc()+vProd(n);
- if(!path.length)return'<div class="hero"><h2>মোবাইলের সব পার্টস ও এক্সেসরিজ</h2><p>চার্জার, ব্যাটারি, ডিসপ্লে ও আরও অনেক কিছু। পছন্দ বেছে সরাসরি অর্ডার করুন।</p><a class="a" href="tel:'+PH+'">📞 কল করুন</a><a class="a" href="https://wa.me/'+WA+'" target="_blank" rel="noopener">💬 WhatsApp</a></div><div class="grid">'+T.map(function(c,i){return'<div class="cat" onclick="go('+i+')"><div class="ic">'+c.i+'</div>'+c.n+'</div>'}).join("")+'</div><p class="mu" style="text-align:center;margin-top:20px">'+SHOP+' · মোবাইল সার্ভিসিং<br>ফোন: '+PH+'</p>';
- var fl=n.c.length>10?'<input placeholder="🔍 খুঁজুন..." oninput="flt(this.value)" style="margin-bottom:10px">':"";return bc()+fl+'<div id="lst">'+n.c.map(function(c,i){return'<div class="row" onclick="go('+i+')"><span>'+esc(c.n)+'</span><span>'+(c.p!=null?'<b>৳'+c.p+'</b> ':'')+'›</span></div>'}).join("")+'</div>';
+ if(!path.length)return vHome();
+ var fl=n.c.length>10?'<input placeholder="🔍 খুঁজুন..." oninput="flt(this.value)" style="margin-bottom:10px">':"";return bc()+hd()+fl+'<div id="lst" style="--cc:'+CC[path[0]][0]+'">'+n.c.map(function(c,i){return'<div class="row" onclick="go('+i+')"><span>'+esc(c.n)+'</span><span>'+(c.p!=null?pr(c)+' ':'')+'›</span></div>'}).join("")+'</div>';
 }
 function flt(v){v=v.toLowerCase();document.querySelectorAll("#lst .row").forEach(function(r){r.style.display=r.textContent.toLowerCase().indexOf(v)>-1?"":"none"})}
 var COL=[["কালো","#1c1c1e"],["সাদা","#f2f2f2"],["নীল","#2563eb"],["সবুজ","#16a34a"],["বেগুনি","#7c3aed"],["গোল্ডেন","#d4a73a"],["সিলভার","#b8bec6"],["গোলাপি","#ec4899"]],bci=0;
@@ -101,16 +172,18 @@ function pic(n){
  else if(c==3||c==4){var f=c==4?COL[bci][1]:g,dk=(c==4&&(bci==1||bci==6))?"#334155":"#fff";
   o='<rect x="62" y="22" width="76" height="140" rx="14" fill="'+f+'" stroke="#94a3b8" stroke-width="2"/><rect x="70" y="30" width="26" height="30" rx="8" fill="#0f172a" opacity=".85"/><circle cx="79" cy="39" r="4" fill="#475569"/><circle cx="87" cy="51" r="4" fill="#475569"/><g transform="rotate(-90 100 110)">'+tx(100,113,8,"INSUFF TELECOM",dk)+'</g>'+tx(100,180,8,c==3?"Back Cover":"Back Shell · "+COL[bci][0],"#334155")+tx(100,193,10,md,"#334155",600)}
  else if(c==5)o='<rect x="60" y="40" width="80" height="80" rx="18" fill="#0f172a"/><circle cx="86" cy="68" r="14" fill="#1e293b" stroke="#64748b" stroke-width="3"/><circle cx="86" cy="68" r="6" fill="#3b82f6"/><circle cx="116" cy="92" r="11" fill="#1e293b" stroke="#64748b" stroke-width="3"/><circle cx="116" cy="92" r="4" fill="#3b82f6"/>'+tx(100,140,8,"INSUFF TELECOM",g)+tx(100,160,10,"Camera Module","#334155")+tx(100,182,10,md,"#334155",600);
+ else if(c>=8)o='<rect x="30" y="30" width="140" height="120" rx="20" fill="#fff" stroke="'+g+'" stroke-width="3"/><text x="100" y="108" text-anchor="middle" font-size="62">'+T[c].i+'</text>'+tx(100,142,8,"INSUFF TELECOM",g)+tx(100,172,10,md,"#334155",600)+tx(100,189,9,T[c].n,"#667085",600);
+ else if(c==7)o='<rect x="64" y="30" width="72" height="128" rx="14" fill="#111827"/><rect x="70" y="42" width="60" height="96" rx="4" fill="#38bdf8"/><g transform="rotate(35 100 100)"><rect x="95" y="52" width="10" height="96" rx="4" fill="#f59e0b"/><circle cx="100" cy="46" r="13" fill="none" stroke="#f59e0b" stroke-width="9"/></g>'+tx(100,172,9,"INSUFF TELECOM",g)+tx(100,190,10,md,"#334155",600);
  else{var ak=path[1]==1;o='<rect x="62" y="22" width="76" height="140" rx="14" fill="#111827"/><rect x="68" y="36" width="64" height="108" rx="4" fill="#38bdf8"/><path d="M68 100 L132 60 V80 L68 120Z" fill="#fff" opacity=".25"/>'+tx(100,92,8,"INSUFF TELECOM","#fff")+'<rect x="40" y="168" width="120" height="16" rx="8" fill="'+g+'"/>'+tx(100,180,9,ak?n.n:"Keypad Display","#fff")+tx(100,196,9,md,"#334155",600)}
  return'<svg viewBox="0 0 200 200" style="display:block;margin:auto;width:230px;max-width:100%;background:#eef6f5;border-radius:16px">'+o+'</svg>'}
 function vProd(n){
- return'<div class="card"><div>'+pic(n)+'</div>'+(path[0]==4?sw():'')+'<h2 style="margin:8px 0">'+esc(names().join(" › "))+'</h2><div class="pr">৳'+n.p+'</div><div class="q"><button onclick="cq(-1)">−</button><b id="pq">'+pq+'</b><button onclick="cq(1)">+</button><span class="mu">পরিমাণ</span></div><button class="btn" onclick="add(true)">⚡ এখনই অর্ডার করুন</button><button class="btn s" onclick="add(false)">🛒 কার্টে যোগ করুন</button></div>';
+ return'<div class="card"><div>'+pic(n)+'</div>'+(path[0]==4?sw():'')+'<h2 style="margin:8px 0">'+esc(names().join(" › "))+'</h2><div class="pr">'+(n.op?'<s class="mu" style="font-size:16px">৳'+n.op+'</s> ':'')+'৳'+n.p+(n.d?' <em class="off">-'+n.d+'%</em>':'')+'</div>'+(n.sv?'<div class="mu">সার্ভিসের চূড়ান্ত দাম ফোন দেখে জানানো হবে</div>':'')+'<div class="q"><button onclick="cq(-1)">−</button><b id="pq">'+pq+'</b><button onclick="cq(1)">+</button><span class="mu">পরিমাণ</span></div><button class="btn" onclick="add(true)">⚡ এখনই অর্ডার করুন</button><button class="btn s" onclick="add(false)">🛒 কার্টে যোগ করুন</button></div>';
 }
 function cq(d){pq=Math.max(1,pq+d);$("pq").textContent=pq}
 function add(buy){
  var n=node(),nm=names().join(" › ")+(path[0]==4?" › "+COL[bci][0]:""),x=cart.find(function(c){return c.name==nm});
  if(x)x.qty+=pq;else cart.push({name:nm,price:n.p,qty:pq});
- sv();pq=1;if(buy){show("checkout")}else{toast("কার্টে যোগ হয়েছে ✓");draw()}
+ sv();pq=1;if(buy){show("checkout")}else{toast("কার্টে যোগ হয়েছে ✓");popC=1;drawNav()}
 }
 function cc(i,d){cart[i].qty+=d;if(cart[i].qty<1)cart.splice(i,1);sv();draw()}
 function rm(i){cart.splice(i,1);sv();draw()}
@@ -118,16 +191,22 @@ function vCart(){
  if(!cart.length)return'<div class="bc"><button onclick="back()">← পেছনে</button></div><div class="card"><p>কার্ট খালি।</p><button class="btn" onclick="home()">কেনাকাটা শুরু করুন</button></div>';
  return'<div class="bc"><button onclick="back()">← পেছনে</button></div><div class="card"><h2 style="margin:0 0 6px">আপনার কার্ট</h2>'+cart.map(function(c,i){return'<div class="ci"><div style="flex:1">'+esc(c.name)+'<div class="mu">৳'+c.price+' × '+c.qty+' = ৳'+c.price*c.qty+'</div></div><div class="q" style="margin:0"><button onclick="cc('+i+',-1)">−</button><b>'+c.qty+'</b><button onclick="cc('+i+',1)">+</button></div><button class="x" onclick="rm('+i+')">✕</button></div>'}).join("")+'<div class="tot"><span>মোট</span><span>৳'+sum()+'</span></div><button class="btn" onclick="show(\'checkout\')">অর্ডার করুন</button><button class="btn s" onclick="home()">আরও কিনুন</button></div>';
 }
+function zn(){return(D.dz[ci.z]||D.dz[0]||["—",0])[0]}
+function deliv(){if(ci.d!="হোম ডেলিভারি")return 0;var z=D.dz[ci.z]||D.dz[0];if(!z)return 0;if(D.fr>0&&sum()>=D.fr)return 0;return z[1]}
 function vCheck(){
  if(!cart.length)return vCart();
- return'<div class="bc"><button onclick="back()">← পেছনে</button></div><div class="card"><h2 style="margin:0">অর্ডারের তথ্য</h2><label>আপনার নাম *</label><input value="'+esc(ci.n)+'" oninput="ci.n=this.value"><label>মোবাইল নম্বর *</label><input type="tel" inputmode="tel" value="'+esc(ci.p)+'" oninput="ci.p=this.value"><label>ঠিকানা (ডেলিভারির জন্য)</label><input value="'+esc(ci.a)+'" oninput="ci.a=this.value"><label>নেওয়ার ধরন</label><select onchange="ci.d=this.value"><option'+(ci.d=="হোম ডেলিভারি"?" selected":"")+'>হোম ডেলিভারি</option><option'+(ci.d=="দোকান থেকে নেব"?" selected":"")+'>দোকান থেকে নেব</option></select><div class="tot"><span>মোট ('+cnt()+' টি)</span><span>৳'+sum()+'</span></div><button class="btn" onclick="place()">অর্ডার কনফার্ম করুন</button></div>';
-}
+ var dv=ci.d=="হোম ডেলিভারি";
+ return'<div class="bc"><button onclick="back()">← পেছনে</button></div><div class="card"><h2 style="margin:0">অর্ডারের তথ্য</h2><label>আপনার নাম *</label><input value="'+esc(ci.n)+'" oninput="ci.n=this.value"><label>মোবাইল নম্বর *</label><input type="tel" inputmode="tel" value="'+esc(ci.p)+'" oninput="ci.p=this.value"><label>নেওয়ার ধরন</label><select onchange="ci.d=this.value;draw()"><option'+(dv?" selected":"")+'>হোম ডেলিভারি</option><option'+(dv?"":" selected")+'>দোকান থেকে নেব</option></select>'
+ +(dv?'<label>এলাকা</label><select onchange="ci.z=+this.value;draw()">'+D.dz.map(function(z,i){return'<option value="'+i+'"'+(i==ci.z?" selected":"")+'>'+esc(z[0])+' (৳'+z[1]+')</option>'}).join("")+'</select><label>ঠিকানা *</label><input value="'+esc(ci.a)+'" oninput="ci.a=this.value">':'')
+ +'<label>ফোনের মডেল / মন্তব্য (ঐচ্ছিক)</label><input value="'+esc(ci.m)+'" oninput="ci.m=this.value" placeholder="যেমন: Samsung A15, ডিসপ্লে ভাঙা">'
+ +'<div class="ci"><span>পণ্যের মোট</span><span>৳'+sum()+'</span></div>'+(dv?'<div class="ci"><span>ডেলিভারি চার্জ</span><span>'+(deliv()?'৳'+deliv():'ফ্রি 🎉')+'</span></div>':'')+(dv&&D.fr>0&&sum()<D.fr?'<p class="mu">আরও ৳'+(D.fr-sum())+' টাকার কিনলে ডেলিভারি ফ্রি</p>':'')
+ +'<div class="tot"><span>সর্বমোট</span><span>৳'+(sum()+deliv())+'</span></div><button class="btn" onclick="place()">অর্ডার কনফার্ম করুন</button></div>'}
 function place(){
  if(!ci.n.trim()||ci.p.replace(/\D/g,"").length<11){alert("নাম ও সঠিক মোবাইল নম্বর দিন");return}
  if(ci.d=="হোম ডেলিভারি"&&!ci.a.trim()){alert("ডেলিভারির ঠিকানা দিন");return}
  var no=Math.floor(1000+Math.random()*9000);
- var t="নতুন অর্ডার #"+no+" – "+SHOP+"\nনাম: "+ci.n+"\nফোন: "+ci.p+"\n"+ci.d+(ci.a?"\nঠিকানা: "+ci.a:"")+"\n\n"+cart.map(function(c,i){return(i+1)+". "+c.name+" × "+c.qty+" = ৳"+c.price*c.qty}).join("\n")+"\n\nমোট: ৳"+sum();
- ord={no:no,t:t,sent:false};
+ var t="নতুন অর্ডার #"+no+" – "+SHOP+"\nনাম: "+ci.n+"\nফোন: "+ci.p+"\n"+ci.d+(ci.a?"\nঠিকানা: "+ci.a:"")+"\n\n"+cart.map(function(c,i){return(i+1)+". "+c.name+" × "+c.qty+" = ৳"+c.price*c.qty}).join("\n")+(ci.m?"\nমন্তব্য: "+ci.m:"")+(ci.d=="হোম ডেলিভারি"?"\nএলাকা: "+zn()+"\nডেলিভারি চার্জ: "+(deliv()?"৳"+deliv():"ফ্রি"):"")+"\n\nসর্বমোট: ৳"+(sum()+deliv());
+ ord={no:no,t:t,sent:false};hist.unshift({no:no,d:Date.now(),tot:sum()+deliv(),t:t});hist=hist.slice(0,30);try{localStorage.setItem("insuff_orders",JSON.stringify(hist))}catch(e){}
  if(!WA_KEY){show("done");return}
  var bt=document.querySelector(".btn");if(bt){bt.disabled=true;bt.textContent="পাঠানো হচ্ছে..."}
  var pl=JSON.stringify({no:no,name:ci.n,phone:ci.p,address:ci.a,delivery:ci.d,items:cart.map(function(c){return c.name+" × "+c.qty+" = ৳"+c.price*c.qty}).join("\n"),total:sum()});
@@ -137,5 +216,5 @@ function vDone(){
  var e=encodeURIComponent(ord.t);
  return'<div class="card"><div class="big">✅</div><h2 style="text-align:center;margin:0">অর্ডার #'+ord.no+(ord.sent?' সম্পন্ন হয়েছে ✓':' তৈরি হয়েছে')+'</h2>'+(ord.sent?'<p class="mu" style="text-align:center">আপনার অর্ডার আমাদের কাছে পৌঁছে গেছে। শীঘ্রই ফোনে যোগাযোগ করা হবে। ধন্যবাদ!</p>':'<p class="mu" style="text-align:center">অর্ডারটি আমাদের কাছে পৌঁছে দিতে নিচের বোতামে চাপ দিয়ে পাঠিয়ে দিন।</p>')+'<pre style="white-space:pre-wrap;font:inherit;font-size:14px;background:var(--bg);padding:12px;border-radius:10px">'+esc(ord.t)+'</pre>'+(ord.sent?'':'<a class="btn" href="https://wa.me/'+WA+'?text='+e+'" target="_blank" rel="noopener">💬 WhatsApp-এ অর্ডার পাঠান</a><a class="btn s" href="sms:'+PH+'?body='+e+'">✉️ SMS-এ পাঠান</a>')+'<a class="btn s" href="tel:'+PH+'">📞 কল করে অর্ডার করুন</a><button class="btn s" onclick="cart=[];sv();ord=null;home()">হোমে ফিরুন (কার্ট খালি হবে)</button></div>';
 }
-draw();
+draw();setInterval(function(){var e=$("bn");if(!e||view!="shop"||path.length)return;var w=e.clientWidth,k=Math.round(e.scrollLeft/w);e.scrollTo({left:((k+1)%BN.length)*w,behavior:"smooth"})},3500);
 </script></body></html>
